@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+/* Theme Variables */
+:root {
+  /* Space Theme (Default) */
+  --bg-primary: #1a1b2e;
+  --bg-secondary: #16213e;
+  --bg-gradient-from: #0f3460;
+  --bg-gradient-to: #533483;
+  --text-primary: #ffffff;
+  --text-secondary: #e2e4f3;
+  --accent-primary: #7c3aed;
+  --accent-hover: #6d28d9;
+  --border-color: #4338ca;
+  --border-focus: #7c3aed;
+  --error-color: #f472b6;
+  --shadow: rgba(124, 58, 237, 0.3);
+}
+
+/* Dark Red Theme */
+[data-theme="dark-red"] {
+  --bg-primary: #1a0f0f;
+  --bg-secondary: #2d1b1b;
+  --bg-gradient-from: #4c1d1d;
+  --bg-gradient-to: #3d1a1a;
+  --text-primary: #f8fafc;
+  --text-secondary: #e2e8f0;
+  --accent-primary: #dc2626;
+  --accent-hover: #b91c1c;
+  --border-color: #7f1d1d;
+  --border-focus: #dc2626;
+  --error-color: #fca5a5;
+  --shadow: rgba(220, 38, 38, 0.3);
+}
+
+/* Dark Yellow Theme */
+[data-theme="dark-yellow"] {
+  --bg-primary: #1a1a0f;
+  --bg-secondary: #2d2d1b;
+  --bg-gradient-from: #4c4c1d;
+  --bg-gradient-to: #3d3d1a;
+  --text-primary: #f8fafc;
+  --text-secondary: #e2e8f0;
+  --accent-primary: #eab308;
+  --accent-hover: #ca8a04;
+  --border-color: #a16207;
+  --border-focus: #eab308;
+  --error-color: #fbbf24;
+  --shadow: rgba(234, 179, 8, 0.3);
+}
+
+/* Earth Theme */
+[data-theme="earth"] {
+  --bg-primary: #1e3a3a;
+  --bg-secondary: #2d4a4a;
+  --bg-gradient-from: #1e40af;
+  --bg-gradient-to: #166534;
+  --text-primary: #ffffff;
+  --text-secondary: #f1f5f9;
+  --accent-primary: #3b82f6;
+  --accent-hover: #2563eb;
+  --border-color: #16a34a;
+  --border-focus: #3b82f6;
+  --error-color: #f87171;
+  --shadow: rgba(59, 130, 246, 0.3);
+}
+
+/* Apply theme colors */
+body {
+  background: linear-gradient(135deg, var(--bg-gradient-from), var(--bg-gradient-to));
+  color: var(--text-primary);
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Stars effect for space theme */
+:root body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #ffffff, transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 90px 40px, #ffffff, transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), transparent),
+    radial-gradient(2px 2px at 160px 30px, #ffffff, transparent),
+    radial-gradient(1px 1px at 200px 90px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(2px 2px at 240px 50px, #ffffff, transparent),
+    radial-gradient(1px 1px at 280px 120px, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1px 1px at 320px 20px, #ffffff, transparent),
+    radial-gradient(2px 2px at 360px 100px, rgba(255,255,255,0.8), transparent);
+  background-repeat: repeat;
+  background-size: 400px 150px;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.7;
+}
