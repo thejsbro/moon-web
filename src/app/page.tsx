@@ -1,8 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
+import NatalChart from "@/components/NatalChart";
+import { useAppData } from "@/context/AppContext";
 
 interface FormData {
   fullName: string;
@@ -12,6 +15,8 @@ interface FormData {
 }
 
 export default function Home() {
+  const { setFormData } = useAppData();
+  const [showNatalChart, setShowNatalChart] = useState(false);
   const {
     register,
     handleSubmit,
@@ -19,7 +24,9 @@ export default function Home() {
   } = useForm<FormData>();
 
   const onSubmit = (data: FormData) => {
-    console.log("Form Data:", data);
+    setFormData(data);
+    console.log("Form Data saved:", data);
+    setShowNatalChart(true);
   };
 
   return (
@@ -180,6 +187,11 @@ export default function Home() {
         </form>
       </motion.div>
     </div>
+
+    {/* Natal Chart Modal */}
+    {showNatalChart && (
+      <NatalChart onClose={() => setShowNatalChart(false)} />
+    )}
     </div>
   );
 }
