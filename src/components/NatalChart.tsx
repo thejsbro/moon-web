@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 interface NatalChartProps {
   onClose: () => void;
@@ -24,6 +25,7 @@ declare global {
 
 export default function NatalChart({ onClose }: NatalChartProps) {
   const chartRef = useRef<HTMLDivElement>(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const loadAstroChart = async () => {
@@ -159,13 +161,13 @@ export default function NatalChart({ onClose }: NatalChartProps) {
             className="text-3xl font-bold mb-2"
             style={{ color: "var(--text-primary)" }}
           >
-            Your Natal Chart
+            {t('natal_chart_title')}
           </h2>
           <p 
             className="text-sm"
             style={{ color: "var(--text-secondary)" }}
           >
-            Generated with random data for demonstration
+            {t('natal_chart_subtitle')}
           </p>
         </motion.div>
 
@@ -185,7 +187,7 @@ export default function NatalChart({ onClose }: NatalChartProps) {
           {/* Loading placeholder */}
           <div className="text-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 mx-auto mb-4" style={{ borderColor: "var(--accent-primary)" }}></div>
-            <p style={{ color: "var(--text-secondary)" }}>Loading your natal chart...</p>
+            <p style={{ color: "var(--text-secondary)" }}>{t('loading_chart')}</p>
           </div>
         </motion.div>
 
@@ -201,15 +203,13 @@ export default function NatalChart({ onClose }: NatalChartProps) {
             className="text-lg font-semibold mb-2"
             style={{ color: "var(--text-primary)" }}
           >
-            Chart Information
+            {t('chart_information')}
           </h3>
           <p 
             className="text-sm"
             style={{ color: "var(--text-secondary)" }}
           >
-            This is a sample natal chart generated with random planetary positions. 
-            In a real application, this would use your actual birth data to calculate 
-            precise planetary positions and house cusps.
+            {t('chart_info_description')}
           </p>
         </motion.div>
       </motion.div>
